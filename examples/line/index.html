@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LINE Native Bridge Test</title>
+<style>body{font:16px system-ui;margin:24px;background:#f1f7f4}button,input{font:inherit;padding:12px;margin:8px 0;max-width:100%;box-sizing:border-box}pre{white-space:pre-wrap;word-break:break-all}button{display:block}</style>
+<h1>LINE 原生扫码测试</h1><p>使用真实 LIFF SDK；外部浏览器状态保持真实。</p>
+<label>LIFF ID <input id="id" placeholder="公开的 LIFF ID"></label>
+<button id="init">初始化</button><button id="login" disabled>官方登录</button>
+<button id="scan" disabled>调用 liff.scanCodeV2()</button><pre id="result" role="status">等待初始化</pre>
+<script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<script>
+const result = document.getElementById('result');
+const id = document.getElementById('id');
+const scan = document.getElementById('scan');
+id.value = new URL(location.href).searchParams.get('liffId') || '';
+document.getElementById('init').onclick = async () => {
+  try {
+    if (!id.value.trim()) throw new Error('请填写真实 LIFF ID');
+    await liff.init({ liffId: id.value.trim() });
+    result.textContent = JSON.stringify({ initialized: true, inClient: liff.isInClient(),
+      loggedIn: liff.isLoggedIn() }, null, 2);
+    scan.disabled = false;
+    document.getElementById('login').disabled = false;
+  } catch (error) { result.textContent = error.message; }
+};
+document.getElementById('login').onclick = () => liff.login();
+scan.onclick = async () => {
+  scan.disabled = true;
+  result.textContent = '等待系统扫码结果';
+  try { result.textContent = JSON.stringify(await liff.scanCodeV2(), null, 2); }
+  catch (error) { result.textContent = '扫码失败或取消：' + (error.code || 'UNKNOWN'); }
+  finally { scan.disabled = false; }
+};
+</script></html>

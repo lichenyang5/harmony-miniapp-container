@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VK Native Bridge Test</title>
+<style>body{font:16px system-ui;margin:24px;background:#f2f6ff}button{font:inherit;display:block;padding:14px;margin:12px 0}pre{white-space:pre-wrap;word-break:break-all}</style>
+<h1>VK 原生能力测试</h1><p>请从 VK Mini App 官方入口打开，普通浏览器不代表完整容器。</p>
+<button data-method="VKWebAppInit">初始化</button>
+<button data-method="VKWebAppOpenCodeReader">扫码</button>
+<button data-method="VKWebAppTapticImpactOccurred" data-params='{"style":"light"}'>轻触振动</button>
+<button data-method="VKWebAppTapticImpactOccurred" data-params='{"style":"invalid"}'>非法参数测试</button>
+<pre id="result" role="status">点击执行</pre>
+<script src="https://unpkg.com/@vkontakte/vk-bridge@3.0.2/dist/browser.min.js"></script>
+<script>
+const result = document.getElementById('result');
+for (const button of document.querySelectorAll('button')) {
+  button.onclick = async () => {
+    button.disabled = true;
+    result.textContent = '等待回包';
+    let timer;
+    try {
+      if (!window.vkBridge) throw new Error('VK Bridge SDK 未加载');
+      const timeout = new Promise((_, reject) => {
+        timer = setTimeout(() => reject(new Error('回包超时；原生操作不因此取消')), 30000);
+      });
+      const value = await Promise.race([
+        vkBridge.send(button.dataset.method, JSON.parse(button.dataset.params || '{}')), timeout]);
+      result.textContent = JSON.stringify(value, null, 2);
+    } catch (error) { result.textContent = JSON.stringify(error, null, 2) || String(error); }
+    finally { clearTimeout(timer); button.disabled = false; }
+  };
+}
+</script></html>
