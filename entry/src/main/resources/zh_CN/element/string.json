@@ -2,9 +2,9 @@
   "string": [
     { "name": "mp_host_title", "value": "小程序容器" },
     { "name": "mp_host_scope", "value": "HarmonyOS HAR · LINE / VK · 原生能力桥接" },
-    { "name": "mp_host_pending", "value": "当前条目为待验证演示入口，登录、可用性和原生能力需真机验证。" },
+    { "name": "mp_host_pending", "value": "可打开业务小程序或 API 测试台，实际可用性取决于远端服务与账号。" },
     { "name": "mp_host_line_scope", "value": "官方网页登录 · 原生扫码" },
-    { "name": "mp_host_vk_scope", "value": "VK 网页登录 · 原生扫码与振动" },
+    { "name": "mp_host_vk_scope", "value": "VK 网页登录 · 容器导航与原生桥接" },
     { "name": "mp_host_catalog_failed", "value": "无法读取小程序列表。" },
     { "name": "mp_host_open_failed", "value": "暂时无法打开小程序。" },
     { "name": "mp_host_container_failed", "value": "容器错误：%s。请关闭后重新打开。" },

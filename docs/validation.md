@@ -44,6 +44,8 @@ LINE 选定网页中的扫码测试卡存在 `inLineClient` 前置条件，WEB �
 
 ## 复现
 
+真实业务小程序的新增验收及操作步骤见下节和 [面试操作卡](vk-business-demo.md)。
+
 ```powershell
 ./tools/build.ps1 -Task Tests
 ./tools/build.ps1 -Task Hap
@@ -54,3 +56,13 @@ node --test mpsdk/tests/vk-response.test.cjs
 ```
 
 单独运行 Node 命令前需设置 `TYPESCRIPT_PATH`，指向 DevEco 的 `tools/ohpm/node_modules/typescript`。官方登录、远端内容与权限必须在真机单独验证。
+
+## 新增：VK 业务小程序验证
+
+日期：2026-11-16。接入 `54638228`（Калькулятор обоев / 壁纸用量计算器），保留 LINE/VK API 测试入口。重新构建独立 HAR 和签名 HAP、覆盖安装成功，44/44 项迁移回归再次通过。未重新执行 ArkTS UnitTestBuild。
+
+真机复用此前的 VK 官方登录态，进入实际业务首页；本次没有重新输入账号或验证该应用的独立授权弹窗。房间尺寸为 400×300×270 cm，门窗均设为 0；选择冷色纯色壁纸，卷宽 53 cm、卷长 1005 cm、无对花和自动处理门窗。结果页实际显示 10 卷、28 条、每卷 3 条、铺贴面积 37.8 m²；墙面详情的二维裁切图正常显示 400×270 cm / 8 条。
+
+宿主顶部返回与手机系统返回均实际返回业务结果页，分别对应 `toolbarBackDecision` / `systemBackDecision` 的 `BACKED`。关闭后回到宿主首页，并记录 `WebView.released`、`Session.closed`。重新打开后进入新会话，首页显示最近计算；历史列表打开该记录后恢复同一结果。
+
+限制：远端冷启动等待较长，未做耗时归因；可选 3D 预览页未显示模型，不计为通过。未测试广告交互、支付、邀请、任意应用兼容或长期稳定性。初选 GoPolyana 仅观察到加载态和 SDK 身份识别，未作为业务成功，已移出目录。此前“非 API Demo 业务小程序未验证”的待办已由本节这一项具体流程补齐，其他业务应用仍需分别验收。

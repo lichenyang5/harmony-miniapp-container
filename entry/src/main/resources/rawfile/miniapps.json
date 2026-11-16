@@ -1,4 +1,5 @@
 [
   { "name": "LINE Demo · WEB", "vendor": "line", "appId": "2012241484-PibjtMII", "url": "https://miniapp.line.me/2012241484-PibjtMII" },
-  { "name": "VK Bridge Demo", "vendor": "vk", "appId": "54769936", "url": "https://vk.ru/app54769936" }
+  { "name": "VK Bridge Demo", "vendor": "vk", "appId": "54769936", "url": "https://vk.ru/app54769936" },
+  { "name": "VK 壁纸用量计算器", "vendor": "vk", "appId": "54638228", "url": "https://vk.ru/app54638228" }
 ]

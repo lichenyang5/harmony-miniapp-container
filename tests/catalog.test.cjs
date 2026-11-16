@@ -13,7 +13,7 @@ const { parseCatalog, createLaunchInfo } = exported;
 const entries = JSON.parse(fs.readFileSync(path.join(__dirname,
   '../entry/src/main/resources/rawfile/miniapps.json'), 'utf8'));
 
-test('catalog supplies one valid entry for each selected vendor', () => {
+test('catalog supplies valid entries for the selected vendors', () => {
   assert.deepEqual(parseCatalog(JSON.stringify(entries)), entries);
   assert.deepEqual(new Set(entries.map(app => app.vendor)), new Set(['line', 'vk']));
 });
