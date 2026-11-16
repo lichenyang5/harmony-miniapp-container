@@ -1,0 +1,17 @@
+{
+  "signingConfigs": [
+    {
+      "name": "default",
+      "type": "HarmonyOS",
+      "material": {
+        "certpath": "YOUR_CERTIFICATE.cer",
+        "profile": "YOUR_PROFILE.p7b",
+        "storeFile": "YOUR_KEYSTORE.p12",
+        "keyAlias": "YOUR_KEY_ALIAS",
+        "keyPassword": "YOUR_LOCAL_PASSWORD",
+        "storePassword": "YOUR_LOCAL_PASSWORD",
+        "signAlg": "SHA256withECDSA"
+      }
+    }
+  ]
+}

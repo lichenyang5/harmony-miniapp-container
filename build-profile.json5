@@ -1,56 +1,17 @@
 {
   "app": {
-    "signingConfigs": [
-      {
-        "name": "default",
-        "type": "HarmonyOS",
-        "material": {
-          "certpath": "C:\\Users\\30829\\.ohos\\config\\default_MyApplication_CKXVO1BFKCDKrcpkOSbR-g3zyWb4Td_Jw-_lCM-ZE_8=.cer",
-          "keyAlias": "debugKey",
-          "keyPassword": "0000001B68FC72EAEDEC1EA521AD2D174CC6942FE1ABD2FE2A690E046F6E03F7AD5CD8C00E8C760ED325E1",
-          "profile": "C:\\Users\\30829\\.ohos\\config\\default_MyApplication_CKXVO1BFKCDKrcpkOSbR-g3zyWb4Td_Jw-_lCM-ZE_8=.p7b",
-          "signAlg": "SHA256withECDSA",
-          "storeFile": "C:\\Users\\30829\\.ohos\\config\\default_MyApplication_CKXVO1BFKCDKrcpkOSbR-g3zyWb4Td_Jw-_lCM-ZE_8=.p12",
-          "storePassword": "0000001BC24203C9A15619DBF173ECA3718E85F96C7410FADB94D17FEF1E01300C3AEAD25F9E30EEC1294B"
-        }
-      }
-    ],
-    "products": [
-      {
-        "name": "default",
-        "signingConfig": "default",
-        "targetSdkVersion": "6.1.1(24)",
-        "compatibleSdkVersion": "6.1.1(24)",
-        "runtimeOS": "HarmonyOS",
-        "buildOption": {
-          "strictMode": {
-            "caseSensitiveCheck": true,
-            "useNormalizedOHMUrl": true
-          }
-        }
-      }
-    ],
-    "buildModeSet": [
-      {
-        "name": "debug",
-      },
-      {
-        "name": "release"
-      }
-    ]
+    "signingConfigs": [],
+    "products": [{
+      "name": "default",
+      "targetSdkVersion": "6.1.1(24)",
+      "compatibleSdkVersion": "6.1.1(24)",
+      "runtimeOS": "HarmonyOS",
+      "buildOption": { "strictMode": { "caseSensitiveCheck": true, "useNormalizedOHMUrl": true } }
+    }],
+    "buildModeSet": [{ "name": "debug" }, { "name": "release" }]
   },
   "modules": [
-    {
-      "name": "entry",
-      "srcPath": "./entry",
-      "targets": [
-        {
-          "name": "default",
-          "applyToProducts": [
-            "default"
-          ]
-        }
-      ]
-    }
+    { "name": "entry", "srcPath": "./entry", "targets": [{ "name": "default", "applyToProducts": ["default"] }] },
+    { "name": "mpsdk", "srcPath": "./mpsdk", "targets": [{ "name": "default" }] }
   ]
 }
