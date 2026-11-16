@@ -18,3 +18,5 @@
 *.p12
 *.p7b
 *.cer
+/showcase/videos/*.mp4
+/showcase/*.zip

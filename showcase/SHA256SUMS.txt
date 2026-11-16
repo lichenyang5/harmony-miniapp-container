@@ -1,0 +1,3 @@
+c2e879aa7cc0077b1f9c80617497503469df3fbcac9191b886001b2df5a2a596  line-business.mp4
+2f5220ca808963a29150bc2fcccf671fc46a992e4d5826df6cd50c60b47a691b  vk-business.mp4
+2ab4b78742beb65a69905d9fffa407879bc3fd9c16ac59f436bc4cc984ffc89d  miniapp-interview-showcase.zip
