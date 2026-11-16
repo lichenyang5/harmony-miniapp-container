@@ -57,8 +57,11 @@
 
 ## 求职展示
 
+面试时可直接下载 [完整展示包 ZIP](https://github.com/lichenyang5/harmony-miniapp-container/releases/download/showcase-v1.0.0/miniapp-interview-showcase.zip)，解压后打开 `index.html`，按章节播放两段真机视频并查看讲解要点。[Release 页面](https://github.com/lichenyang5/harmony-miniapp-container/releases/tag/showcase-v1.0.0) 同时提供单独 MP4 和 SHA256 校验文件。
+
 - [项目架构、技术难点、贡献边界与演示步骤](docs/portfolio.md)
 - [可用于简历的项目描述与面试口述](docs/resume.md)
+- [LINE / VK 真机录屏、离线展示页与讲解稿](showcase/README.md)
 
 展示定位为基于已有 SDK 的多厂商容器集成与原生能力联调。原 SDK 的协议、会话和原生 Handler 实现与本项目新增的宿主、构建、诊断及回归工作分别说明，避免将迁移规模等同于个人原创研发规模。
 
