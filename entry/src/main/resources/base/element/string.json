@@ -1,5 +1,18 @@
 {
   "string": [
+    { "name": "mp_host_title", "value": "Mini App Container" },
+    { "name": "mp_host_scope", "value": "HarmonyOS HAR · LINE / VK · Native bridge" },
+    { "name": "mp_host_pending", "value": "Demo entries are candidates. Login, availability and native APIs require device verification." },
+    { "name": "mp_host_line_scope", "value": "Official web login · Native QR scanning" },
+    { "name": "mp_host_vk_scope", "value": "VK web login · Native scanning and haptics" },
+    { "name": "mp_host_catalog_failed", "value": "Unable to read the mini app catalog." },
+    { "name": "mp_host_open_failed", "value": "Unable to open the mini app." },
+    { "name": "mp_host_container_failed", "value": "Container error: %s. Close and reopen to retry." },
+    { "name": "mp_host_retry", "value": "Retry" },
+    { "name": "mp_host_open", "value": "Open" },
+    { "name": "mp_host_back", "value": "Back" },
+    { "name": "mp_host_refresh", "value": "Refresh" },
+    { "name": "mp_host_close", "value": "Close" },
     {
       "name": "module_desc",
       "value": "module description"

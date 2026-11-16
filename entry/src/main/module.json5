@@ -9,6 +9,10 @@
     ],
     "deliveryWithInstall": true,
     "installationFree": false,
+    "requestPermissions": [
+      { "name": "ohos.permission.INTERNET" },
+      { "name": "ohos.permission.VIBRATE" }
+    ],
     "pages": "$profile:main_pages",
     "abilities": [
       {
