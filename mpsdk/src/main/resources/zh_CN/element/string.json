@@ -1,0 +1,348 @@
+{
+  "string": [
+    {
+      "name": "mp_line_browser_window",
+      "value": "浏览器"
+    },
+    {
+      "name": "mp_line_login_qr_title",
+      "value": "使用二维码登录"
+    },
+    {
+      "name": "mp_line_login_qr_description",
+      "value": "使用主设备扫描二维码后，即可登录子设备。"
+    },
+    {
+      "name": "mp_line_login_refresh",
+      "value": "刷新"
+    },
+    {
+      "name": "mp_line_login_email_title",
+      "value": "使用邮箱地址登录"
+    },
+    {
+      "name": "mp_line_login_email_description",
+      "value": "输入帐号绑定的邮箱地址和密码后，即可登录子设备。"
+    },
+    {
+      "name": "mp_line_login_email_placeholder",
+      "value": "邮箱地址"
+    },
+    {
+      "name": "mp_line_login_password_placeholder",
+      "value": "密码"
+    },
+    {
+      "name": "mp_line_login_forgot_password",
+      "value": "忘记密码？"
+    },
+    {
+      "name": "mp_line_login_forgot_description",
+      "value": "您可以在主设备上打开LINE应用，并前往“设置”>“帐号”>“邮箱地址”>“更改邮箱地址”，以更改帐号绑定的邮箱地址和密码。"
+    },
+    {
+      "name": "mp_line_login_pin",
+      "value": "请在主设备上输入以下验证码。\n\n验证码：%1$s"
+    },
+    {
+      "name": "mp_line_login_qr_expired",
+      "value": "二维码已过期。请点击%s再试一次。"
+    },
+    {
+      "name": "mp_line_login_unknown_error",
+      "value": "发生未知错误，请再试一次。"
+    },
+    {
+      "name": "mp_line_login_network_error",
+      "value": "发生网络错误。请检查您的网络连接，然后再试一次。"
+    },
+    {
+      "name": "mp_line_login_ok",
+      "value": "确定"
+    },
+    {
+      "name": "mp_line_login_close",
+      "value": "??"
+    },
+    {
+      "name": "mp_line_login_next",
+      "value": "???"
+    },
+    {
+      "name": "mp_line_login_invalid_info",
+      "value": "邮箱地址或密码不正确。请再试一次。"
+    },
+    {
+      "name": "mp_line_login_not_allowed",
+      "value": "子设备登录已禁用。请在主设备上打开LINE，前往“设置”>“帐号”页面后开启“允许从其他装置登录”。"
+    },
+    {
+      "name": "mp_line_login_pin_expired",
+      "value": "验证码已过期。请从头再试一次。"
+    },
+    {
+      "name": "mp_line_login_enter_credentials",
+      "value": "???????????"
+    },
+    {
+      "name": "mp_line_login_qr_unavailable",
+      "value": "??????????????"
+    },
+    {
+      "name": "mp_line_login_retry",
+      "value": "重试"
+    },
+    {
+      "name": "mp_line_consent_title",
+      "value": "认证"
+    },
+    {
+      "name": "mp_line_consent_cancel",
+      "value": "取消"
+    },
+    {
+      "name": "mp_line_subwindow_close",
+      "value": "关闭"
+    },
+    {
+      "name": "mp_line_browser_back",
+      "value": "返回"
+    },
+    {
+      "name": "mp_line_browser_refresh",
+      "value": "刷新"
+    },
+    {
+      "name": "mp_line_browser_close",
+      "value": "关闭"
+    },
+    {
+      "name": "mp_line_browser_retry",
+      "value": "重试"
+    },
+    {
+      "name": "mp_line_browser_load_failed",
+      "value": "网页加载失败，请重试。"
+    },
+    {
+      "name": "mp_line_browser_download_unavailable",
+      "value": "此浏览器暂不支持下载。"
+    },
+    {
+      "name": "mp_line_browser_open_failed",
+      "value": "无法打开此小程序，请重试。"
+    },
+    {
+      "name": "mp_line_web_login_failed",
+      "value": "无法登录此网站，请重试。"
+    },
+    {
+      "name": "mp_line_scan_result_title",
+      "value": "扫码结果"
+    },
+    {
+      "name": "mp_line_scan_result_open",
+      "value": "打开链接"
+    },
+    {
+      "name": "mp_line_scan_result_copy",
+      "value": "复制"
+    },
+    {
+      "name": "mp_line_scan_result_close",
+      "value": "关闭"
+    },
+    {
+      "name": "mp_line_scan_result_copied",
+      "value": "已复制"
+    },
+    {
+      "name": "mp_line_scan_result_failed",
+      "value": "暂时无法完成操作，请重试。"
+    },
+    {
+      "name": "mp_web_system_link_unavailable",
+      "value": "暂不支持此操作。"
+    },
+    {
+      "name": "mp_web_system_link_failed",
+      "value": "暂时无法打开此链接，请重试。"
+    },
+    {
+      "name": "mp_line_registration_title",
+      "value": "注册LINE"
+    },
+    {
+      "name": "mp_line_registration_country",
+      "value": "国家/地区"
+    },
+    {
+      "name": "mp_line_registration_error_country",
+      "value": "此国家或地区暂不支持手机号注册。请选择手机号所属国家或地区，重新检查是否可用。"
+    },
+    {
+      "name": "mp_line_registration_country_unavailable",
+      "value": "无法加载国家/地区列表。请关闭后重试。"
+    },
+    {
+      "name": "mp_line_registration_phone",
+      "value": "电话号码"
+    },
+    {
+      "name": "mp_line_registration_name",
+      "value": "输入姓名"
+    },
+    {
+      "name": "mp_line_registration_password",
+      "value": "创建密码"
+    },
+    {
+      "name": "mp_line_registration_next",
+      "value": "下一步"
+    },
+    {
+      "name": "mp_line_registration_sms",
+      "value": "发送或重发验证码"
+    },
+    {
+      "name": "mp_line_registration_ivr",
+      "value": "拨打语音电话"
+    },
+    {
+      "name": "mp_line_registration_ivr_description",
+      "value": "您将接到播报验证码的自动语音电话。运营商可能收取通话费用。"
+    },
+    {
+      "name": "mp_line_registration_pull",
+      "value": "发送短信进行验证"
+    },
+    {
+      "name": "mp_line_registration_pull_instructions",
+      "value": "请使用短信应用向下列号码发送完全相同的内容。LINE验证期间请保持此页面打开。打开短信应用不代表发送成功。"
+    },
+    {
+      "name": "mp_line_registration_code",
+      "value": "验证码"
+    },
+    {
+      "name": "mp_line_registration_cooldown",
+      "value": "%d秒后可重发"
+    },
+    {
+      "name": "mp_line_registration_create",
+      "value": "创建账号"
+    },
+    {
+      "name": "mp_line_registration_create_notice",
+      "value": "此操作将创建新账号。提交后关闭页面无法撤销账号创建。"
+    },
+    {
+      "name": "mp_line_registration_pending",
+      "value": "账号仍需完成设置，之后才能打开小程序。"
+    },
+    {
+      "name": "mp_line_registration_auto_add",
+      "value": "自动添加好友"
+    },
+    {
+      "name": "mp_line_registration_searchable",
+      "value": "允许添加好友"
+    },
+    {
+      "name": "mp_line_registration_age",
+      "value": "此处暂不支持年龄验证，您可以明确选择稍后再说。"
+    },
+    {
+      "name": "mp_line_registration_skip",
+      "value": "稍后再说"
+    },
+    {
+      "name": "mp_line_registration_challenge",
+      "value": "请完成安全验证，然后重新执行刚才的操作。"
+    },
+    {
+      "name": "mp_line_registration_review",
+      "value": "查看并继续"
+    },
+    {
+      "name": "mp_line_registration_close",
+      "value": "关闭"
+    },
+    {
+      "name": "mp_line_registration_back",
+      "value": "返回"
+    },
+    {
+      "name": "mp_line_registration_retry",
+      "value": "重试"
+    },
+    {
+      "name": "mp_line_registration_retry_action",
+      "value": "安全验证页面已完成。请重试刚才的操作，由LINE确认结果。"
+    },
+    {
+      "name": "mp_line_registration_error_unsupported",
+      "value": "此处暂不支持这一步注册操作。请返回并使用其他登录方式。"
+    },
+    {
+      "name": "mp_line_registration_error_upgrade",
+      "value": "LINE 要求使用更新的应用版本。请更新宿主应用后再尝试注册。"
+    },
+    {
+      "name": "mp_line_registration_error_reset",
+      "value": "本次注册会话已失效。请返回并重新开始注册。"
+    },
+    {
+      "name": "mp_line_registration_error_verification",
+      "value": "验证码未能通过验证。请检查验证码或重新获取。"
+    },
+    {
+      "name": "mp_line_registration_error_retry_later",
+      "value": "尝试次数过多或服务暂时不可用。请稍后重试。"
+    },
+    {
+      "name": "mp_line_registration_error_input",
+      "value": "请检查填写的信息后重试此步骤。"
+    },
+    {
+      "name": "mp_line_registration_error_not_allowed",
+      "value": "LINE 不允许使用此号码或地区注册。请返回并使用其他登录方式。"
+    },
+    {
+      "name": "mp_line_registration_error_account_conflict",
+      "value": "已有保存的 LINE 账号。请返回并使用该账号登录。"
+    },
+    {
+      "name": "mp_line_registration_error",
+      "value": "无法完成此步骤。请稍后重试。"
+    },
+    {
+      "name": "mp_line_registration_uncertain",
+      "value": "LINE可能已创建账号，但当前无法确认结果。请勿再次创建账号。请关闭此页面，稍后检查账号状态。"
+    },
+    {
+      "name": "mp_line_registration_accept",
+      "value": "接受"
+    },
+    {
+      "name": "mp_line_registration_decline",
+      "value": "拒绝"
+    },
+    {
+      "name": "mp_line_registration_country_choice",
+      "value": "请选择是否接受上述地区隐私政策。您的选择将提交给LINE，并在设置完成前进行核实。"
+    },
+    {
+      "name": "mp_line_registration_terms",
+      "value": "使用条款"
+    },
+    {
+      "name": "mp_line_registration_privacy",
+      "value": "隐私政策"
+    },
+    {
+      "name": "mp_line_registration_phone_terms",
+      "value": "创建账号需要验证电话号码。继续操作即表示您同意使用条款和隐私政策。"
+    }
+  ]
+}

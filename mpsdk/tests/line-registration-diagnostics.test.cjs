@@ -1,0 +1,31 @@
+const assert = require('node:assert/strict');
+const { test } = require('node:test');
+const { createLoader } = require('./sdk-loader.cjs');
+
+test('registration traces correlate operations, measure elapsed time and exclude private exception content', () => {
+  const load = createLoader();
+  const { SdkLogger } = load('main/ets/logging/SdkLogger');
+  const { MiniAppError } = load('main/ets/core/MiniAppError');
+  const { LineRegistrationDiagnostics } = load('main/ets/vendors/line/registration/LineRegistrationDiagnostics');
+  const logs = [];
+  SdkLogger.install({ write: (level, event, details) => logs.push({ level, event, ...JSON.parse(details) }) });
+  let now = 10;
+  const first = new LineRegistrationDiagnostics(() => now), second = new LineRegistrationDiagnostics(() => now);
+  const action = first.start('action', 'submitPhoneNumber');
+  const rpc = first.start('rpc', 'getPhoneVerifMethodForRegistration');
+  now = 35;
+  first.fail(rpc, new MiniAppError('LINE_REGISTRATION_INTERNAL_ERROR', 'private-number-and-server-text', { token: 'private-token' }));
+  first.fail(action, new MiniAppError('LINE_REGISTRATION_INTERNAL_ERROR', 'private-error'));
+  const other = second.start('rpc', 'openSession'); second.complete(other);
+  assert.equal(logs[0].sessionId, logs[1].sessionId);
+  assert.notEqual(logs[0].sessionId, logs[4].sessionId);
+  assert.notEqual(logs[0].requestId, logs[1].requestId);
+  assert.equal(logs[1].requestId, logs[2].requestId);
+  assert.equal(logs[2].durationMs, 25);
+  assert.equal(logs[2].code, 'LINE_REGISTRATION_INTERNAL_ERROR');
+  assert.equal(logs[2].event, 'LineRegistration.rpcFailed');
+  assert.equal(logs[5].event, 'LineRegistration.rpcCompleted');
+  assert.ok(!JSON.stringify(logs).includes('private-'));
+  SdkLogger.install({ write() { throw Error('sink failure'); } });
+  assert.doesNotThrow(() => first.complete(action));
+});

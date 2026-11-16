@@ -1,0 +1,10 @@
+{
+  "module": {
+    "name": "mpsdk",
+    "type": "har",
+    "deviceTypes": [
+      "phone",
+      "tablet"
+    ]
+  }
+}

@@ -1,0 +1,364 @@
+{
+  "string": [
+    {
+      "name": "mp_line_browser_window",
+      "value": "Browser"
+    },
+    {
+      "name": "mpsdk_download_title",
+      "value": "File Download"
+    },
+    {
+      "name": "mpsdk_download_message",
+      "value": "Do you want to save %s to your devices?"
+    },
+    {
+      "name": "mpsdk_download_cancel",
+      "value": "CANCEL"
+    },
+    {
+      "name": "mpsdk_download_save",
+      "value": "SAVE"
+    },
+    {
+      "name": "mp_line_login_qr_title",
+      "value": "Log in with QR code"
+    },
+    {
+      "name": "mp_line_login_qr_description",
+      "value": "Scan the QR code with your main device to log in on your sub device."
+    },
+    {
+      "name": "mp_line_login_refresh",
+      "value": "Regenerate"
+    },
+    {
+      "name": "mp_line_login_email_title",
+      "value": "Log in with email"
+    },
+    {
+      "name": "mp_line_login_email_description",
+      "value": "Enter the email and password registered to your account to log in as your sub device."
+    },
+    {
+      "name": "mp_line_login_email_placeholder",
+      "value": "Email"
+    },
+    {
+      "name": "mp_line_login_password_placeholder",
+      "value": "Password"
+    },
+    {
+      "name": "mp_line_login_forgot_password",
+      "value": "Forgot your password?"
+    },
+    {
+      "name": "mp_line_login_forgot_description",
+      "value": "You can change the email and password registered to your account by opening the LINE app on your main device and going to Settings > Account > Email address > Change your email."
+    },
+    {
+      "name": "mp_line_login_pin",
+      "value": "Enter the following code on your main device.\n\nVerification code: %1$s"
+    },
+    {
+      "name": "mp_line_login_qr_expired",
+      "value": "The QR code has expired. Tap %s to try again."
+    },
+    {
+      "name": "mp_line_login_unknown_error",
+      "value": "An unknown error occurred. Please try again."
+    },
+    {
+      "name": "mp_line_login_network_error",
+      "value": "A network error occurred. Please check your connection and try again."
+    },
+    {
+      "name": "mp_line_login_ok",
+      "value": "OK"
+    },
+    {
+      "name": "mp_line_login_close",
+      "value": "Close"
+    },
+    {
+      "name": "mp_line_login_next",
+      "value": "Next"
+    },
+    {
+      "name": "mp_line_login_invalid_info",
+      "value": "Incorrect email or password. Please try again."
+    },
+    {
+      "name": "mp_line_login_not_allowed",
+      "value": "Sub device login is disabled. Using LINE on your main device, go to Settings > Account, and enable \"Allow login.\""
+    },
+    {
+      "name": "mp_line_login_pin_expired",
+      "value": "The verification code has expired. Please try again from the beginning."
+    },
+    {
+      "name": "mp_line_login_enter_credentials",
+      "value": "Check your email and password."
+    },
+    {
+      "name": "mp_line_login_qr_unavailable",
+      "value": "The QR code is unavailable. Please try again."
+    },
+    {
+      "name": "mp_line_login_retry",
+      "value": "Try again"
+    },
+    {
+      "name": "mp_line_consent_title",
+      "value": "Verification"
+    },
+    {
+      "name": "mp_line_consent_cancel",
+      "value": "Cancel"
+    },
+    {
+      "name": "mp_line_subwindow_close",
+      "value": "Close"
+    },
+    {
+      "name": "mp_line_browser_back",
+      "value": "Back"
+    },
+    {
+      "name": "mp_line_browser_refresh",
+      "value": "Refresh"
+    },
+    {
+      "name": "mp_line_browser_close",
+      "value": "Close"
+    },
+    {
+      "name": "mp_line_browser_retry",
+      "value": "Try again"
+    },
+    {
+      "name": "mp_line_browser_load_failed",
+      "value": "Unable to load this page. Please try again."
+    },
+    {
+      "name": "mp_line_browser_download_unavailable",
+      "value": "Downloads are not supported in this browser."
+    },
+    {
+      "name": "mp_line_browser_open_failed",
+      "value": "Unable to open this mini app. Please try again."
+    },
+    {
+      "name": "mp_line_web_login_failed",
+      "value": "Unable to sign in to this website. Please try again."
+    },
+    {
+      "name": "mp_line_scan_result_title",
+      "value": "Scan result"
+    },
+    {
+      "name": "mp_line_scan_result_open",
+      "value": "Open link"
+    },
+    {
+      "name": "mp_line_scan_result_copy",
+      "value": "Copy"
+    },
+    {
+      "name": "mp_line_scan_result_close",
+      "value": "Close"
+    },
+    {
+      "name": "mp_line_scan_result_copied",
+      "value": "Copied"
+    },
+    {
+      "name": "mp_line_scan_result_failed",
+      "value": "Unable to complete this action. Please try again."
+    },
+    {
+      "name": "mp_web_system_link_unavailable",
+      "value": "This action is currently unavailable."
+    },
+    {
+      "name": "mp_web_system_link_failed",
+      "value": "Unable to open this link. Please try again."
+    },
+    {
+      "name": "mp_line_registration_title",
+      "value": "Sign up for LINE"
+    },
+    {
+      "name": "mp_line_registration_country",
+      "value": "Country / region"
+    },
+    {
+      "name": "mp_line_registration_error_country",
+      "value": "Phone registration is unavailable for this country or region. Select the country or region of your phone number to check availability."
+    },
+    {
+      "name": "mp_line_registration_country_unavailable",
+      "value": "Country names are unavailable. Close and try again."
+    },
+    {
+      "name": "mp_line_registration_phone",
+      "value": "Phone number"
+    },
+    {
+      "name": "mp_line_registration_name",
+      "value": "Display name"
+    },
+    {
+      "name": "mp_line_registration_password",
+      "value": "Create password"
+    },
+    {
+      "name": "mp_line_registration_next",
+      "value": "Next"
+    },
+    {
+      "name": "mp_line_registration_sms",
+      "value": "Send / resend code"
+    },
+    {
+      "name": "mp_line_registration_ivr",
+      "value": "Call me"
+    },
+    {
+      "name": "mp_line_registration_ivr_description",
+      "value": "You will receive an automated call with your verification code. Your mobile phone plan may charge for the call."
+    },
+    {
+      "name": "mp_line_registration_pull",
+      "value": "Verify by sending an SMS"
+    },
+    {
+      "name": "mp_line_registration_pull_instructions",
+      "value": "Send this exact message to the number below using your SMS app. Keep this page open while LINE checks it. Opening an SMS app does not confirm delivery."
+    },
+    {
+      "name": "mp_line_registration_code",
+      "value": "Verification code"
+    },
+    {
+      "name": "mp_line_registration_cooldown",
+      "value": "Resend available in %d seconds"
+    },
+    {
+      "name": "mp_line_registration_create",
+      "value": "Create account"
+    },
+    {
+      "name": "mp_line_registration_create_notice",
+      "value": "This creates a new account. Closing after submission cannot undo account creation."
+    },
+    {
+      "name": "mp_line_registration_pending",
+      "value": "Your account needs more setup before it can open mini apps."
+    },
+    {
+      "name": "mp_line_registration_auto_add",
+      "value": "Auto-add friends"
+    },
+    {
+      "name": "mp_line_registration_searchable",
+      "value": "Allow others to add me"
+    },
+    {
+      "name": "mp_line_registration_age",
+      "value": "Age verification is not available here. You can choose to skip it for now."
+    },
+    {
+      "name": "mp_line_registration_skip",
+      "value": "Skip for now"
+    },
+    {
+      "name": "mp_line_registration_challenge",
+      "value": "Complete the security check, then retry your previous action."
+    },
+    {
+      "name": "mp_line_registration_review",
+      "value": "Review and continue"
+    },
+    {
+      "name": "mp_line_registration_close",
+      "value": "Close"
+    },
+    {
+      "name": "mp_line_registration_back",
+      "value": "Back"
+    },
+    {
+      "name": "mp_line_registration_retry",
+      "value": "Retry"
+    },
+    {
+      "name": "mp_line_registration_retry_action",
+      "value": "Security check completed locally. Please retry your previous action to check with LINE."
+    },
+    {
+      "name": "mp_line_registration_error_unsupported",
+      "value": "This registration step is not supported here. Go back and use another login method."
+    },
+    {
+      "name": "mp_line_registration_error_upgrade",
+      "value": "LINE requires a newer app version. Update the host app before trying registration again."
+    },
+    {
+      "name": "mp_line_registration_error_reset",
+      "value": "This registration session is no longer valid. Go back and start registration again."
+    },
+    {
+      "name": "mp_line_registration_error_verification",
+      "value": "The verification code could not be confirmed. Check the code or request a new one."
+    },
+    {
+      "name": "mp_line_registration_error_retry_later",
+      "value": "Too many attempts or the service is temporarily unavailable. Wait before trying again."
+    },
+    {
+      "name": "mp_line_registration_error_input",
+      "value": "Check the information you entered, then try this step again."
+    },
+    {
+      "name": "mp_line_registration_error_not_allowed",
+      "value": "LINE does not allow registration with this phone number or region. Go back and use another login method."
+    },
+    {
+      "name": "mp_line_registration_error_account_conflict",
+      "value": "A LINE account is already saved. Go back and log in with that account."
+    },
+    {
+      "name": "mp_line_registration_error",
+      "value": "Unable to complete this step. Try again later."
+    },
+    {
+      "name": "mp_line_registration_uncertain",
+      "value": "LINE may have created your account, but the result could not be confirmed. Do not create another account. Close this page and check the account status later."
+    },
+    {
+      "name": "mp_line_registration_accept",
+      "value": "Accept"
+    },
+    {
+      "name": "mp_line_registration_decline",
+      "value": "Decline"
+    },
+    {
+      "name": "mp_line_registration_country_choice",
+      "value": "Choose whether you accept the regional privacy policy shown above. Your choice will be submitted to LINE and checked before setup completes."
+    },
+    {
+      "name": "mp_line_registration_terms",
+      "value": "Terms of Use"
+    },
+    {
+      "name": "mp_line_registration_privacy",
+      "value": "Privacy Policy"
+    },
+    {
+      "name": "mp_line_registration_phone_terms",
+      "value": "To create an account, verify your phone number. By continuing, you agree to the Terms of Use and Privacy Policy."
+    }
+  ]
+}

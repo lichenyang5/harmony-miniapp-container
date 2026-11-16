@@ -10,3 +10,11 @@
 /.clang-tidy
 **/.test
 /.appanalyzer
+/.local/
+/libs/*.har
+**/BuildProfile.ets
+**/oh_modules/
+**/.hvigor/
+*.p12
+*.p7b
+*.cer

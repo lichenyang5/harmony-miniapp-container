@@ -1,0 +1,8 @@
+{
+  "name": "mpsdk",
+  "version": "0.1.0",
+  "description": "Extensible online mini-app container SDK",
+  "main": "Index.ets",
+  "dependencies": {},
+  "modelVersion": "6.1.1",
+}
