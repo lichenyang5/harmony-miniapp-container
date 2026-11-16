@@ -24,7 +24,8 @@ struct MiniAppPage {
     this.title = params.name;
     this.adapter = params.vendor === 'line' ? new LineAdapter({ mode: LineMode.WEB }) : new VkAdapter();
     const app = createLaunchInfo(params);
-    if (BuildProfile.DEBUG && params.vendor === 'line') {
+    // Keep diagnostics on the API test app, away from business mini app pages.
+    if (BuildProfile.DEBUG && params.vendor === 'line' && params.appId === '2012241484-PibjtMII') {
       app.jsOnDocEnd = lineBridgeDiagnostics(params.appId);
     }
     if (params.vendor === 'vk') {

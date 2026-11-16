@@ -3,7 +3,7 @@
     { "name": "mp_host_title", "value": "Mini App Container" },
     { "name": "mp_host_scope", "value": "HarmonyOS HAR · LINE / VK · Native bridge" },
     { "name": "mp_host_pending", "value": "Open a business mini app or an API demo. Availability depends on the remote service and account." },
-    { "name": "mp_host_line_scope", "value": "Official web login · Native QR scanning" },
+    { "name": "mp_host_line_scope", "value": "LINE WEB · Container navigation and native bridge" },
     { "name": "mp_host_vk_scope", "value": "VK web login · Container navigation and native bridge" },
     { "name": "mp_host_catalog_failed", "value": "Unable to read the mini app catalog." },
     { "name": "mp_host_open_failed", "value": "Unable to open the mini app." },
