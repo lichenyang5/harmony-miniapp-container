@@ -46,6 +46,10 @@ LINE 使用 Yahoo! 天气入口 `2009013997-MX3EzKQv`，以 WEB 模式加载。
 
 本次页面未要求登录，所以保存结果只说明当前环境的业务偏好能够恢复。它不证明 LINE 账号认证或云同步。
 
+下面是录屏中保存涉谷后的画面，可以同时看到新宿和涉谷两个地区。截图中的天气日期属于录制当天，后续访问的数据会变化。
+
+![LINE 天气小程序保存涉谷并保留新宿偏好](https://raw.githubusercontent.com/lichenyang5/harmony-miniapp-container/showcase-v1.0.0/showcase/posters/line.jpg)
+
 日期切换也没有建立可回退的网页历史。当前顶部返回和系统返回从根页退出容器，这是本次记录的实际行为。
 
 ## 将业务动作与容器状态对应
@@ -119,4 +123,4 @@ GitHub 自动生成的 Source code 压缩包不含视频。使用时应选择 `m
 - [VK 业务操作卡](https://github.com/lichenyang5/harmony-miniapp-container/blob/showcase-v1.0.0/docs/vk-business-demo.md)
 - [LINE 业务操作卡](https://github.com/lichenyang5/harmony-miniapp-container/blob/showcase-v1.0.0/docs/line-business-demo.md)
 - [展示材料与讲稿](https://github.com/lichenyang5/harmony-miniapp-container/tree/showcase-v1.0.0/showcase)
-- [返回系列目录](README.md)
+- [返回系列目录](https://github.com/lichenyang5/harmony-miniapp-container/blob/main/docs/blog/README.md)

@@ -44,9 +44,9 @@ replyId    → 当前网页脚本保存的回包路由
 
 这两个 ID 没有必要相同。一个服务于上层 API，另一个服务于跨窗口消息投递。
 
-回包时，脚本从 Map 取出保存的来源，移除等待项，再向该窗口的已保存 origin 发送。页面隐藏离开时会清理等待项和计时器。
+回包时，脚本从 Map 取出保存的来源，移除等待项，再向该窗口的已保存 origin 发送。网页脚本在 `pagehide` 事件中清理等待项和计时器；这段清理不能概括成“宿主一切后台就立即执行”，宿主前后台还由独立生命周期监听处理。
 
-这样可以避免一个原生结果被错误地发送给另一个 iframe，也避免把后来的页面误当成原请求页面。
+来源记录负责选中回包窗口，后面的会话与文档有效性检查负责判断是否还能回包。这两层配合约束投递目标，不能仅凭 Map 就认为跨文档问题已经解决。
 
 ## 系统能力结果还要转换厂商语义
 
@@ -83,6 +83,17 @@ if (this.session !== session ||
 ```
 
 只检查“组件还在不在”不够。同一个容器可能已经刷新到另一个文档；只检查 URL 也不够，同一个地址可以属于两次不同的加载。
+
+可以用一个时序示意理解这个判断。下面描述需要保护的异步场景，不是本次新增的设备实测记录：
+
+```text
+T0  文档 A 发起扫码，保存 Session S、documentId 7、generation 3
+T1  系统扫码尚未结束，容器发生文档变化
+T2  系统能力返回文本
+T3  发现当前 documentId 或 generation 已变化，丢弃 A 的回包
+```
+
+还有一种情况是同一个应用关闭后重开。应用 ID 相同，但新的 Session 不能接收旧 Session 的结果；应用目录 ID、运行会话 ID 和文档代次各有用途。
 
 LINE 有自己的文档就绪和有效性检查，在 Handler 完成后确认原页面仍然有效，再提交 LIFF 回包。两种厂商实现不同，但都需要将异步结果限制在原请求上下文中。
 
@@ -136,4 +147,4 @@ LINE 当前优先处理可关闭的子窗口，再使用普通网页历史；根
 - [共用扫码能力与占用](https://github.com/lichenyang5/harmony-miniapp-container/blob/showcase-v1.0.0/mpsdk/src/main/ets/capabilities/media/CodeReaderTools.ets)
 - [VK 导航边界](https://github.com/lichenyang5/harmony-miniapp-container/blob/showcase-v1.0.0/mpsdk/src/main/ets/vendors/vk/VkNavigationController.ets)
 - [WebView 资源释放](https://github.com/lichenyang5/harmony-miniapp-container/blob/showcase-v1.0.0/mpsdk/src/main/ets/web/MiniAppView.ets)
-- [下一篇 真实业务验收与面试展示](06-business-validation-and-showcase.md)
+- [下一篇 真实业务验收与面试展示](https://github.com/lichenyang5/harmony-miniapp-container/blob/main/docs/blog/06-business-validation-and-showcase.md)

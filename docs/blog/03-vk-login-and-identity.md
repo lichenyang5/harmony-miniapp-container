@@ -9,7 +9,7 @@
 | 状态 | 具体含义 | 本工程中的用途 |
 | --- | --- | --- |
 | 官方网页登录态 | 平台接受用户登录，并按自身规则维持 Web 会话 | 官方页面访问与登录复用 |
-| 小程序启动身份 | 当前官方页面承载的是哪个应用及其启动上下文 | 请求路由和导航边界 |
+| 小程序启动身份 | 当前官方页面承载的是哪个应用及其启动上下文 | 启动上下文记录和导航边界 |
 | 原生能力绑定 | 当前 Session 注册了哪些原生 Handler | 扫码、振动等调用与回包 |
 
 看到应用 ID，不等于完成账号认证；系统扫码能够打开，也不等于宿主拿到了用户的 OAuth Token。
@@ -74,7 +74,7 @@ vk_app_logged_in     导航辅助标记
 
 标记可能残留，登录态可能过期，远端页面结构也可能变化。因此，我验收时会继续检查实际小程序页面和业务操作，而不会只看到这个存储值就宣布“登录成功”。
 
-当前工程没有额外实现 Cookie 导出、Token 注入或自己的登录凭据仓库。官方 Web 会话仍由平台流程与 WebView 的正常网页存储机制参与维护，具体过期和风控行为由平台决定。
+当前 VK 接入没有配置宿主侧的 Cookie 导出、Token 注入或自建登录凭据仓库。官方 Web 会话仍由平台流程与 WebView 的正常网页存储机制参与维护，具体过期和风控行为由平台决定。
 
 若继续完善这段辅助脚本，值得补的点包括 pending 地址重新校验、残留标记恢复、轮询清理，以及更明确的失败和取消状态。这些是后续改进方向，不应混写成当前已完成能力。
 
@@ -87,6 +87,8 @@ vk_app_logged_in     导航辅助标记
 实现还处理了登录后可能出现的 `/games/app<ID>` 路径，将它归一到同一个应用身份。否则应用 ID 虽然没变，导航逻辑却可能把登录前后当成不同目标。
 
 原生侧接受匹配后会记录 `IDENTITY_ACCEPTED`。这个事件表示当前会话接受了入口与页面身份的对应关系，**不表示 SDK 验证了 `sign` 的密码学签名**。
+
+普通能力请求还要经过 iframe 来源检查和 Handler 查找，并不是先通过 `IDENTITY_ACCEPTED` 才统一获得原生能力授权。身份匹配、消息来源和方法分发分别承担不同职责。
 
 `VkLaunchParams` 保存当前上报参数的快照，保留顺序、重复键和空值。它服务于会话上下文，不应被当作宿主后台登录凭据。
 
@@ -127,10 +129,26 @@ SDK 在 VK 接收文档里监听小程序消息，核对 `event.source` 是否�
 
 这支持“当前环境下官方网页登录与选定小程序承载可工作”。全新业务登录、清理状态后的恢复和登录失效异常路径，需要另外验收。
 
+## 登录链路卡住时怎样定位
+
+排查时先确定停在哪一层，再决定查看网页还是桥接代码。下面是依据当前实现整理的排查路径，不代表本项目已经遇到或复现了其中每一种故障。
+
+| 现象 | 优先核对 | 可以缩小到的范围 |
+| --- | --- | --- |
+| 一直停在官方登录页 | 是否由用户完成登录、页面是否提示验证码或其他要求 | 官方账号流程，先不归因于扫码 Handler |
+| 登录后到达首页，没有回到应用 | 当前 hostname、pending 是否在同一源、是否进入辅助脚本分支 | 返回地址与跳转辅助；有标记也不能直接判断登录有效 |
+| 已回到 app 路径，但业务未显示 | 是否加载出目标 iframe、是否只有一个合格候选 | 远端页面加载、启动参数或应用身份匹配 |
+| 出现 IDENTITY_ACCEPTED，但业务仍异常 | 实际业务页面和失败操作，是否依赖未验收 API | 身份匹配已完成，业务能力仍需继续检查 |
+| 业务能操作，只有扫码没有回包 | 请求是否进入原生、同一请求是否完成、文档是否已变化 | 转向桥接和生命周期排查，见下一阶段的回包分析 |
+
+公开排障记录只保留 hostname、状态码和必要的关联标识。不要直接粘贴完整 iframe 地址或启动参数，其中可能含有用户标识和签名；现有 Debug 输出也应先脱敏再分享。
+
+面试时可以用这条链路解释接入职责：我负责让官方页面在新宿主中完成跳转与承载，并验证选定能力；平台负责接受账号认证，已有 SDK 负责协议适配与会话绑定。
+
 ## 源码与下一篇
 
 - [VK 网页脚本与 Binding](https://github.com/lichenyang5/harmony-miniapp-container/blob/showcase-v1.0.0/mpsdk/src/main/ets/vendors/vk/VkVendor.ets)
 - [应用身份匹配](https://github.com/lichenyang5/harmony-miniapp-container/blob/showcase-v1.0.0/mpsdk/src/main/ets/vendors/vk/VkMiniAppIdentity.ets)
 - [启动参数快照](https://github.com/lichenyang5/harmony-miniapp-container/blob/showcase-v1.0.0/mpsdk/src/main/ets/vendors/vk/VkLaunchParams.ets)
 - [宿主转场图标定制](https://github.com/lichenyang5/harmony-miniapp-container/blob/showcase-v1.0.0/entry/src/main/ets/model/VkTransitionIcon.ets)
-- [下一篇 LINE WEB 模式与原生扫码联调](04-line-web-and-scan.md)
+- [下一篇 LINE WEB 模式与原生扫码联调](https://github.com/lichenyang5/harmony-miniapp-container/blob/main/docs/blog/04-line-web-and-scan.md)

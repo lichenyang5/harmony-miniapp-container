@@ -6,6 +6,12 @@
 
 这一篇先把项目的主线讲清楚，后续再展开构建、登录和桥接的具体实现。
 
+先看最终业务画面：下面是 VK 计算结果的真机录屏帧，左侧保留宿主工具栏与实际业务页，右侧是后期添加的讲解字幕。
+
+![HarmonyOS 宿主中运行的 VK 壁纸用量计算器](https://raw.githubusercontent.com/lichenyang5/harmony-miniapp-container/showcase-v1.0.0/showcase/posters/vk.jpg)
+
+这张图展示容器承载结果；扫码和振动使用独立的 API 测试入口验收。[两段完整视频与离线展示包](https://github.com/lichenyang5/harmony-miniapp-container/releases/tag/showcase-v1.0.0)可以先下载体验，再对照后面的实现。
+
 ## 先给项目一个可验收的目标
 
 刚开始做迁移，很容易把源工程里能看到的模块都搬过来：账号、广告、传感器、卡片、完整应用目录，再加上一套保活栈。模块越多，构建失败时越难判断到底是哪一层出了问题。
@@ -38,6 +44,8 @@ flowchart TD
 ```
 
 这一层划分落实到代码后，宿主主要做四件事：读取目录、构造启动信息、选择 Adapter、处理容器事件。SDK 的 core、web、vendors 和 capabilities 则保留原有实现。
+
+几个术语可以对应到本工程的具体对象：HAP 是安装运行的宿主应用包，HAR 是宿主集成的共享包，Session 表示一次容器运行实例，Adapter 用来选择厂商行为。同一个小程序 ID 可以先后创建多个 Session，不能用应用 ID 代替运行实例。
 
 本次新增集中在 `entry/`、构建工具和迁移验证。原 SDK 的会话机制、厂商协议框架及原生 Handler 来自迁移源，这是理解项目贡献的基础。
 
@@ -129,4 +137,4 @@ VK 业务复用已有官方登录态；LINE 天气本次没有要求登录。两
 - [宿主 MiniAppPage](https://github.com/lichenyang5/harmony-miniapp-container/blob/showcase-v1.0.0/entry/src/main/ets/pages/MiniAppPage.ets)
 - [目录与启动信息校验](https://github.com/lichenyang5/harmony-miniapp-container/blob/showcase-v1.0.0/entry/src/main/ets/model/MiniAppCatalog.ets)
 - [迁移来源与范围](https://github.com/lichenyang5/harmony-miniapp-container/blob/showcase-v1.0.0/docs/migration.md)
-- [下一篇 独立 HAR 构建与宿主集成](02-har-build-and-integration.md)
+- [下一篇 独立 HAR 构建与宿主集成](https://github.com/lichenyang5/harmony-miniapp-container/blob/main/docs/blog/02-har-build-and-integration.md)

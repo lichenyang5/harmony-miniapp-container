@@ -64,6 +64,17 @@ manifest.dependencies.mpsdk = mode === 'source'
 
 这个检查把“清单看起来正确”推进到了“本地解析没有继续使用那条源码链接”。后面再通过打包 HAR 的签名 HAP 构建与真机运行确认交付路径。
 
+遇到依赖问题时，我会按下面的顺序缩小范围：
+
+| 现象 | 先检查什么 | 当前工程的处理方式 |
+| --- | --- | --- |
+| 新克隆后同步报 HAR 不存在 | `libs/mpsdk.har` 是否已生成 | 从根构建脚本执行源码引导，而不是先同步最终宿主依赖 |
+| SDK 源码已改，运行结果仍旧 | 是否重新打包并同步了 HAR | 重新执行 `-Task Hap`，同时构建 SDK 与宿主 |
+| 清单已选 HAR，仍提示源码链接残留 | `entry/oh_modules/mpsdk` 的真实路径 | 重新同步 OHPM，再构建；保留检查，不绕过报错 |
+| 命令行找不到 Java | DevEco 安装位置与 JBR 路径 | 设置 `DEVECO_STUDIO_HOME`，由脚本配置工具链 |
+
+这些是定位顺序，不是对所有编译错误的统一修复。版本不匹配、资源缺失等问题仍需看首次失败的位置。
+
 ## 构建失败后也要有明确状态
 
 一次构建可能在 OHPM 同步、HAR 编译、文件复制或 HAP 编译的任意阶段失败。如果脚本直接退出，工作区可能停留在临时源码依赖状态。
@@ -140,4 +151,4 @@ TypeScript 路径主要服务于当前 Node 回归中的源码加载。它与设
 - [构建脚本](https://github.com/lichenyang5/harmony-miniapp-container/blob/showcase-v1.0.0/tools/build.ps1)
 - [依赖切换工具](https://github.com/lichenyang5/harmony-miniapp-container/blob/showcase-v1.0.0/tools/sdk-dependency.cjs)
 - [构建上下文与解析检查](https://github.com/lichenyang5/harmony-miniapp-container/blob/showcase-v1.0.0/hvigorfile.ts)
-- [下一篇 VK 官方网页登录与登录态复用](03-vk-login-and-identity.md)
+- [下一篇 VK 官方网页登录与登录态复用](https://github.com/lichenyang5/harmony-miniapp-container/blob/main/docs/blog/03-vk-login-and-identity.md)

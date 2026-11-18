@@ -48,6 +48,17 @@ new LineAdapter({ mode: LineMode.WEB })
 
 如果只看按钮失败，很容易把时间花在权限或 Scan Kit 上。更有效的排查顺序是先确认桥层是否记录到请求，再判断系统能力是否被调用。
 
+我会把现象与执行阶段对应起来，而不是把所有失败都归为“LINE 不兼容”：
+
+| 观察到的状态 | 下一步检查 |
+| --- | --- |
+| LIFF 尚未初始化完成 | 先检查入口、页面加载与初始化结果 |
+| 测试台按钮提示客户端条件不满足，桥层没有对应请求 | 检查页面前置判断，用受限诊断入口验证真实 API |
+| 已有 handlerStarted，但系统页未正常完成 | 检查前台状态、占用与能力错误 |
+| 已有 handlerCompleted，但网页未显示结果 | 检查回包提交、文档变化与页面接收 |
+
+这些状态用于选择下一层排查；单条日志本身不证明后续阶段成功。扫码成功仍需看到网页中的实际文本。
+
 ## 用受限诊断入口验证真实 API
 
 我的处理方式是增加宿主 Debug 面板。它绕开的是测试台按钮自己的前置判断，点击后仍调用真实 `liff.scanCodeV2()`。
@@ -123,4 +134,4 @@ liff.scanCodeV2
 - [WEB 模式初始化与 Handler 注册](https://github.com/lichenyang5/harmony-miniapp-container/blob/showcase-v1.0.0/mpsdk/src/main/ets/vendors/line/LineVendor.ets)
 - [Debug 诊断入口](https://github.com/lichenyang5/harmony-miniapp-container/blob/showcase-v1.0.0/entry/src/main/ets/model/LineBridgeDiagnostics.ets)
 - [scanCodeV2 扩展 Handler](https://github.com/lichenyang5/harmony-miniapp-container/blob/showcase-v1.0.0/mpsdk/src/main/ets/vendors/line/handlers/ext/ExtScanCodeV2Handler.ets)
-- [下一篇 JSBridge 回包与容器生命周期](05-bridge-navigation-and-lifecycle.md)
+- [下一篇 JSBridge 回包与容器生命周期](https://github.com/lichenyang5/harmony-miniapp-container/blob/main/docs/blog/05-bridge-navigation-and-lifecycle.md)
